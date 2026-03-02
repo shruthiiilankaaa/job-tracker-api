@@ -9,7 +9,10 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://job-tracker-frontend.vercel.app'],
+  credentials: true,
+}));
 app.use(express.json());
 
 // Rate limiting — max 100 requests per 15 mins per IP
